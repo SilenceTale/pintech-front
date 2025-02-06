@@ -7,11 +7,11 @@
 
 html {
   font-size: 13px;
+  color: #000;
 }
 
 body {
   margin: 0;
-  color: #000;
 }
 
 a {
@@ -43,4 +43,8 @@ dd {
   max-width: 1300px;
   min-width: 1000px;
   margin: 0 auto;
+}
+
+.main-content {
+  min-height: 600px;
 }
