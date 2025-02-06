@@ -46,6 +46,7 @@ export const processJoin = async (params, formData: FormData) => {
     requiredTerms3: '개인정보 수집 및 이용에 동의하셔야 합니다.',
   }
   // 필수 항목 검증 E
+  // 
 
   // 회원가입 완료 후 이동
   redirect(redirectUrl)
