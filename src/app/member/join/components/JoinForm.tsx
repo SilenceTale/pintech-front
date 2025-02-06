@@ -9,6 +9,7 @@ import {
 
 import { Input } from '@/app/global/components/FormComponents'
 import { SmallButton, BigButton } from '@/app/global/components/Buttons'
+import Messages from '@/app/global/components/Messages'
 import DatePicker from 'react-datepicker'
 
 const StyledForm = styled.form``
@@ -52,6 +53,7 @@ const JoinForm = ({ form, onClick, onChange, onSelectDate, actionState }) => {
           value={form?.email ?? ''}
           onChange={onChange}
         />
+        <Messages color="danger">{errors?.email}</Messages>
 
         <Input
           type="password"
@@ -61,6 +63,7 @@ const JoinForm = ({ form, onClick, onChange, onSelectDate, actionState }) => {
           value={form?.password ?? ''}
           onChange={onChange}
         />
+        <Messages color="danger">{errors?.password}</Messages>
         <Input
           type="password"
           name="confirmPassword"
@@ -69,6 +72,8 @@ const JoinForm = ({ form, onClick, onChange, onSelectDate, actionState }) => {
           value={form?.confirmPassword ?? ''}
           onChange={onChange}
         />
+        <Messages color="danger">{errors?.confirmPassword}</Messages>
+
         <Input
           type="text"
           name="name"
@@ -77,6 +82,7 @@ const JoinForm = ({ form, onClick, onChange, onSelectDate, actionState }) => {
           value={form?.name ?? ''}
           onChange={onChange}
         />
+        <Messages color="danger">{errors?.name}</Messages>
 
         <div className="address-row">
           <Input
@@ -106,6 +112,7 @@ const JoinForm = ({ form, onClick, onChange, onSelectDate, actionState }) => {
           value={form?.addressSub ?? ''}
           onChange={onChange}
         />
+        <Messages color="danger">{errors?.address}</Messages>
 
         <Input
           type="text"
@@ -114,6 +121,7 @@ const JoinForm = ({ form, onClick, onChange, onSelectDate, actionState }) => {
           value={form?.phoneNumber ?? ''}
           onChange={onChange}
         />
+        <Messages color="danger">{errors?.phoneNumber}</Messages>
 
         <div className="row">
           <div className="tit">성별</div>
@@ -136,6 +144,8 @@ const JoinForm = ({ form, onClick, onChange, onSelectDate, actionState }) => {
             </span>
           </div>
         </div>
+        <Messages color="danger">{errors?.gender}</Messages>
+
         <div className="row">
           <div className="tit">생년월일</div>
           <div>
@@ -145,6 +155,7 @@ const JoinForm = ({ form, onClick, onChange, onSelectDate, actionState }) => {
             />
           </div>
         </div>
+        <Messages color="danger">{errors?.birthDt}</Messages>
 
         <div className="terms">
           <div
@@ -156,6 +167,8 @@ const JoinForm = ({ form, onClick, onChange, onSelectDate, actionState }) => {
             {form?.requiredTerms1 ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
             이용약관에 동의합니다.
           </div>
+          <Messages color="danger">{errors?.requiredTerms1}</Messages>
+
           <div
             className="terms-row"
             onClick={() =>
@@ -165,6 +178,8 @@ const JoinForm = ({ form, onClick, onChange, onSelectDate, actionState }) => {
             {form?.requiredTerms2 ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
             개인정보 처리방침에에 동의합니다.
           </div>
+          <Messages color="danger">{errors?.requiredTerms2}</Messages>
+
           <div
             className="terms-row"
             onClick={() =>
@@ -174,6 +189,7 @@ const JoinForm = ({ form, onClick, onChange, onSelectDate, actionState }) => {
             {form?.requiredTerms3 ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
             개인정보 수집 및 이용에 동의합니다.
           </div>
+          <Messages color="danger">{errors?.requiredTerms3}</Messages>
 
           <div
             className="terms-row"
