@@ -32,6 +32,21 @@ export const processJoin = async (params, formData: FormData) => {
 
   console.log('form', form)
 
+  // 필수 항목 검증 S
+  const requiredFields = {
+    email: '이메일을 입력하세요',
+    name: '이름을 입력하세요',
+    password: '비밀번호를 입력하세요',
+    confirmPassword: '비밀번호를 확인하세요',
+    phoneNumber: '휴대폰 번호를 입력하세요.',
+    gender: '성별을 선택하세요.',
+    birthDt: '생년월일을 선택하세요.',
+    requiredTerms1: '이용 약관에 동의 하셔야 합니다.',
+    requiredTerms2: '개인정보 처리 방침에 동의하셔야 합니다.',
+    requiredTerms3: '개인정보 수집 및 이용에 동의하셔야 합니다.',
+  }
+  // 필수 항목 검증 E
+
   // 회원가입 완료 후 이동
   redirect(redirectUrl)
 }
