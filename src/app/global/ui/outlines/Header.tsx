@@ -95,8 +95,9 @@ const StyledMenu = styled.nav`
 `
 
 const Header = () => {
-  const { email } = userInfo()
-  console.log('value:', value)
+  const { userInfo, isLogin } = useUser()
+  const email = userInfo?.email
+  const name = userInfo?.name
 
   return (
     <StyledHeader>
@@ -110,6 +111,7 @@ const Header = () => {
           <div className="right">
             {isLogin ? (
               <>
+                {name}({email})님,
                 <a href="/mypage">
                   <MdContactPage /> 마이페이지
                 </a>
