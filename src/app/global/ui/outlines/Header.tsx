@@ -8,7 +8,7 @@ import { FaUserPlus, FaHome, FaSearch } from 'react-icons/fa'
 import colors from '../../styles/colors'
 import sizes from '../../styles/sizes'
 import logo from '../../assets/images/logo.png'
-import useUser from '../../hooks/useUser'
+import useUser from '../../hooks/useUser' 
 
 const { white, primary, light, dark } = colors
 const { medium, big } = sizes
