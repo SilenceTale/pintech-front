@@ -1,4 +1,3 @@
-// 단일 컴포넌트로 제작
 import React from 'react'
 import styled, { css } from 'styled-components'
 import colors from '../styles/colors'
@@ -11,7 +10,7 @@ const Message = styled.div`
   box-shadow: 2px 2px 5px ${info};
   color: ${info};
   font-size: ${small};
-  padding: 7px, 10px;
+  padding: 7px 10px;
   text-align: center;
   border-radius: 2px;
 
@@ -30,7 +29,9 @@ const Message = styled.div`
 const Messages = ({ children, color }) => {
   if (!children) return <></>
 
-  const messages = Array.isArray(children) ? children : [children]
+  let messages = Array.isArray(children) ? children : [children]
+  messages = messages.filter((s) => !s?.trim())
+  if (messages.length === 0) return <></>
 
   return messages.map((message, i) => (
     <Message key={message + '_' + i} color={color}>

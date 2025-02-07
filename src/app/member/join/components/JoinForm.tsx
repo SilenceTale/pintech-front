@@ -16,6 +16,7 @@ const StyledForm = styled.form``
 
 const JoinForm = ({ form, onClick, onChange, onSelectDate, actionState }) => {
   const [errors, formAction, isPending] = actionState
+
   return (
     <>
       <StyledForm action={formAction} autoComplete="off">
@@ -64,6 +65,7 @@ const JoinForm = ({ form, onClick, onChange, onSelectDate, actionState }) => {
           onChange={onChange}
         />
         <Messages color="danger">{errors?.password}</Messages>
+
         <Input
           type="password"
           name="confirmPassword"
@@ -176,7 +178,7 @@ const JoinForm = ({ form, onClick, onChange, onSelectDate, actionState }) => {
             }
           >
             {form?.requiredTerms2 ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
-            개인정보 처리방침에에 동의합니다.
+            개인정보 처리방침에 동의합니다.
           </div>
           <Messages color="danger">{errors?.requiredTerms2}</Messages>
 
@@ -189,7 +191,7 @@ const JoinForm = ({ form, onClick, onChange, onSelectDate, actionState }) => {
             {form?.requiredTerms3 ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
             개인정보 수집 및 이용에 동의합니다.
           </div>
-          <Messages color="danger">{errors?.requiredTerms3}</Messages>
+          <Messages color="danger">{errors?.requiredTerms3} </Messages>
 
           <div
             className="terms-row"
@@ -201,7 +203,7 @@ const JoinForm = ({ form, onClick, onChange, onSelectDate, actionState }) => {
             }
           >
             {form?.optionalTerms ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
-            광고성 정보 전송에 동의합니다(선택)
+            광고성 정보 전송에 동의합니다.(선택)
           </div>
         </div>
         <BigButton type="submit" className="submit-btn" disabled={isPending}>

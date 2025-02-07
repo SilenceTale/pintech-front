@@ -1,10 +1,9 @@
-/* 서버 사이드로 구성. */
 'use server'
 import { redirect } from 'next/navigation'
 import { format } from 'date-fns'
 /**
- * 회원 가입 처리
- * @param params : 쿼리스트링 값
+ * 회원가입 처리
+ * @param params : 쿼리스트링값
  * @param formData
  */
 export const processJoin = async (params, formData: FormData) => {
@@ -30,25 +29,47 @@ export const processJoin = async (params, formData: FormData) => {
     form[key] = value
   }
 
-  console.log('form', form)
-
   // 필수 항목 검증 S
   const requiredFields = {
-    email: '이메일을 입력하세요',
-    name: '이름을 입력하세요',
-    password: '비밀번호를 입력하세요',
-    confirmPassword: '비밀번호를 확인하세요',
-    phoneNumber: '휴대폰 번호를 입력하세요.',
+    email: '이메일을 입력하세요.',
+    name: '이름을 입력하세요.',
+    password: '비밀번호를 입력하세요.',
+    confirmPassword: '비밀번호를 확인하세요.',
+    phoneNumber: '휴대폰번호를 입력하세요.',
     gender: '성별을 선택하세요.',
     birthDt: '생년월일을 선택하세요.',
-    requiredTerms1: '이용 약관에 동의 하셔야 합니다.',
-    requiredTerms2: '개인정보 처리 방침에 동의하셔야 합니다.',
-    requiredTerms3: '개인정보 수집 및 이용에 동의하셔야 합니다.',
+    requiredTerms1: '이용약관에 동의 하셔야 합니다.',
+    requiredTerms2: '개인정보 처리방침에 동의 하셔야 합니다.',
+    requiredTerms3: '개인정보 수집 및 이용에 동의 하셔야 합니다.',
   }
-  // 필수 항목 검증 E
-  // 
 
-  // 회원가입 완료 후 이동
+  for (const [field, msg] of Object.entries(requiredFields)) {
+    if (!form[field] || !form[field].trim()) {
+      errors[field] = errors[field] ?? []
+      errors[field].push(msg)
+      hasErrors = true
+    }
+  }
+
+  // 주소 항목 검증
+  if (
+    !form.zipCode ||
+    !form.zipCode?.trim() ||
+    !form.address ||
+    !form.address?.trim()
+  ) {
+    errors.address = errors.address ?? []
+    errors.address.push('주소를 입력하세요.')
+    hasErrors = true
+  }
+
+  if (hasErrors) {
+    // 필수 항목 검증 E
+
+    return errors
+  }
+
+  // 회원 가입 완료 후 이동
   redirect(redirectUrl)
 }
 
