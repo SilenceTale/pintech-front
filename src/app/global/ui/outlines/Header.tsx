@@ -3,12 +3,13 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { styled } from 'styled-components'
-import { SlLogin } from 'react-icons/sl'
+import { SlLogin, SlLogout } from 'react-icons/sl'
 import { FaUserPlus, FaHome, FaSearch } from 'react-icons/fa'
+import { MdContactPage } from 'react-icons/md'
 import colors from '../../styles/colors'
 import sizes from '../../styles/sizes'
 import logo from '../../assets/images/logo.png'
-import useUser from '../../hooks/useUser' 
+import useUser from '../../hooks/useUser'
 
 const { white, primary, light, dark } = colors
 const { medium, big } = sizes
@@ -94,7 +95,7 @@ const StyledMenu = styled.nav`
 `
 
 const Header = () => {
-  const value = useUser()
+  const { email } = userInfo()
   console.log('value:', value)
 
   return (
@@ -107,12 +108,25 @@ const Header = () => {
             </Link>
           </div>
           <div className="right">
-            <a href="/member/join">
-              <FaUserPlus /> 회원가입
-            </a>
-            <a href="/member/login">
-              <SlLogin /> 로그인
-            </a>
+            {isLogin ? (
+              <>
+                <a href="/mypage">
+                  <MdContactPage /> 마이페이지
+                </a>
+                <a href="/member/api/logout">
+                  <SlLogout /> 로그아웃
+                </a>
+              </>
+            ) : (
+              <>
+                <a href="/member/join">
+                  <FaUserPlus /> 회원가입
+                </a>
+                <a href="/member/login">
+                  <SlLogin /> 로그인
+                </a>
+              </>
+            )}
           </div>
         </div>
       </div>

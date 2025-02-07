@@ -25,11 +25,11 @@ export default async function RootLayout({
       <body>
         <StyledComponentsRegistry>
           <UserProvider _userInfo={userInfo}>
-          <CommonProvider>
-            <Header />
-            <main className="main-content">{children}</main>
-            <Footer />
-          </CommonProvider>
+            <CommonProvider>
+              <Header />
+              <main className="main-content">{children}</main>
+              <Footer />
+            </CommonProvider>
           </UserProvider>
         </StyledComponentsRegistry>
       </body>

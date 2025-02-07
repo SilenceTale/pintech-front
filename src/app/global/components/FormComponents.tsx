@@ -21,7 +21,7 @@ const commonStyle = css`
 export const Input = styled.input`
   ${commonStyle}
   height: 40px;
-  border-color: ${({ color }) => (color ? colors[color] ?? light : light)};
+  border-color: ${({ color }) => (color ? (colors[color] ?? light) : light)};
   ${({ width }) => css`
     width: ${width}px;
   `}
@@ -31,7 +31,7 @@ export const Textarea = styled.textarea`
   height: 150px;
   resize: none;
 
-  border-color: ${({ color }) => (color ? colors[color] ?? light : light)};
+  border-color: ${({ color }) => (color ? (colors[color] ?? light) : light)};
   ${({ width }) => css`
     width: ${width}px;
   `}
